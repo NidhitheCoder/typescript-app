@@ -2,52 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Flex, useToast } from "@chakra-ui/react";
 import Card from "../components/card";
 import CardSkeleton from "../components/CardSkeleton";
+import axios from "axios";
 
 const Home: React.FC = () => {
-  const arr = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-  ];
-
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [usersData, setUsersData] = useState<any[]>([]);
 
   useEffect(() => {
-    toast({
-      position: "top",
-      title: "Wait a moment.. It's Loading.",
-      status: "info",
-      duration: 2000,
-      isClosable: true,
-    });
-
-    let interval = setTimeout(() => {
-      setIsLoading(true);
-    }, 2500);
+     axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then( async(res) => {
+        toast({
+          position: "top",
+          title: "Wait a moment.. It's Loading.",
+          status: "info",
+          duration: 500,
+          isClosable: true,
+        });
+        setUsersData(res.data);
+      })
+      .catch(() => console.log("Something wrong"));
+    setIsLoading(true);
 
     return () => {
-      clearTimeout(interval);
       setIsLoading(false);
     };
-  }, [toast]);
+  },[toast]);
 
   return (
     <Flex
@@ -59,8 +40,12 @@ const Home: React.FC = () => {
       justifyContent="space-around"
       color="whiteAlpha.900"
     >
-      {arr.map((item) =>
-        isLoading ? <Card key={item} item={item} /> : <CardSkeleton />
+      {usersData.map((item) =>
+        isLoading ? (
+          <Card key={item.id} item={item} />
+        ) : (
+          <CardSkeleton key={item.id} />
+        )
       )}
     </Flex>
   );

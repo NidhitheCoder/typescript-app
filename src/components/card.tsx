@@ -23,11 +23,11 @@ const card: React.FC<props> = ({ item }) => {
         <Avatar
           size="xl"
           name="Dan Abrahmov"
-          src="https://bit.ly/dan-abramov"
+          src={`https://picsum.photos/id/${item.id}/200`}
         />
       </WrapItem>
       <Center p="4">
-        <Text>Profile Number {item}</Text>
+        <Text> {item.name}</Text>
       </Center>
     </Flex>
   );
