@@ -1,70 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Grid, useToast } from "@chakra-ui/react";
-import Card from "./components/card";
-import CardSkeleton from "./components/CardSkeleton";
-import BottomBar from './components/BottomBar';
+import BottomBar from "./components/BottomBar";
+import { AppRoutes } from "./config/config";
+import Home from "./pages/Home";
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import More from './pages/More';
 
 function App() {
-  const arr = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-  ];
-  const toast = useToast();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    toast({
-      position: "top",
-      title: "Wait a moment.. It's Loading.",
-      status: "info",
-      duration: 2000,
-      isClosable: true,
-    });
-
-    let interval = setTimeout(() => {
-      setIsLoading(true);
-    }, 2500);
-
-    return () => {
-      clearTimeout(interval);
-      setIsLoading(false);
-    };
-  }, [toast]);
-
   return (
     <div className="App">
-      <Grid
-        templateColumns="repeat(4, 1fr)"
-        gap={8}
-        p="5"
-        mx="20"
-        my="10"
-        color="whiteAlpha.900"
-      >
-        {arr.map((item) =>
-          isLoading ? <Card key={item} item={item} /> : <CardSkeleton />
-        )}
-      </Grid>
-      <BottomBar />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={AppRoutes.HOME} component={Home} />
+          <Route exact path={AppRoutes.PROFILE} component={Profile} />
+          <Route exact path={AppRoutes.SETTINGS} component={Settings} />
+          <Route exact path={AppRoutes.MORE} component={More} />
+        </Switch>
+        <BottomBar />
+      </BrowserRouter>
     </div>
   );
 }
