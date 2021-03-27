@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Flex, useToast } from "@chakra-ui/react";
 import Card from "../components/card";
+import {useDispatch} from 'react-redux';
 import CardSkeleton from "../components/CardSkeleton";
 import axios from "axios";
+import {setUsers} from '../redux/user/user.action';
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [usersData, setUsersData] = useState<any[]>([]);
@@ -20,6 +23,7 @@ const Home: React.FC = () => {
           duration: 500,
           isClosable: true,
         });
+        dispatch(setUsers(res.data));
         setUsersData(res.data);
       })
       .catch(() => console.log("Something wrong"));
