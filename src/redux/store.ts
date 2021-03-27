@@ -5,6 +5,7 @@ import rootReducer from './rootReducer';
 export const store = createStore(rootReducer,applyMiddleware());
 export const persistor = persistStore(store);
 
-export default {store,persistor};
+export const configureStore = {store,persistor}
+export default configureStore;
 
 

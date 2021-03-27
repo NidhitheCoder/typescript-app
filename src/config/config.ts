@@ -1,7 +1,7 @@
 
 export enum AppRoutes {
   HOME = "/",
-  PROFILE ="/profiles",
+  ADD_USER ="/AddUser",
   SETTINGS="/settings",
   MORE="/more"
 }

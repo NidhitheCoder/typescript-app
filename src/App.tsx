@@ -4,9 +4,9 @@ import "./App.css";
 import BottomBar from "./components/BottomBar";
 import { AppRoutes } from "./config/config";
 import Home from "./pages/Home";
-import Profile from './pages/Profile';
+import AddUser from './pages/AddUser';
 import Settings from './pages/Settings';
-import More from './pages/More';
+import More from './pages/MorePage';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path={AppRoutes.HOME} component={Home} />
-          <Route exact path={AppRoutes.PROFILE} component={Profile} />
+          <Route exact path={AppRoutes.ADD_USER} component={AddUser} />
           <Route exact path={AppRoutes.SETTINGS} component={Settings} />
           <Route exact path={AppRoutes.MORE} component={More} />
         </Switch>
