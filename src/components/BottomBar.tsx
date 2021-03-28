@@ -12,7 +12,7 @@ import {AppRoutes}  from '../config/config';
 const BottomBar: React.FC = () => {
   const menuItems = [
     { id:1, caption: "Home", icon: FiHome,path:AppRoutes.HOME },
-    { id:2, caption: "Profile", icon: ImProfile,path:AppRoutes.PROFILE },
+    { id:2, caption: "Add User", icon: ImProfile,path:AppRoutes.ADD_USER },
     { id:3, caption: "Settings", icon: FiSettings,path:AppRoutes.SETTINGS },
     { id:4, caption: "More", icon: FiMoreHorizontal,path:AppRoutes.MORE },
   ];

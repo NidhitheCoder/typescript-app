@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Flex, useToast } from "@chakra-ui/react";
 import Card from "../components/card";
+import {useDispatch,useSelector} from 'react-redux';
 import CardSkeleton from "../components/CardSkeleton";
 import axios from "axios";
+import {setUsers} from '../redux/user/user.action';
+import {GetUsers} from '../redux/user/user.selectors';
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [usersData, setUsersData] = useState<any[]>([]);
+  const usersList = useSelector(GetUsers);
 
   useEffect(() => {
      axios
@@ -20,15 +25,18 @@ const Home: React.FC = () => {
           duration: 500,
           isClosable: true,
         });
-        setUsersData(res.data);
+        await dispatch(setUsers(res.data));
       })
       .catch(() => console.log("Something wrong"));
+      setUsersData(usersList.users)
+   
     setIsLoading(true);
 
     return () => {
       setIsLoading(false);
     };
-  },[toast]);
+  },[toast,dispatch]);
+
 
   return (
     <Flex

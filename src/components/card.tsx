@@ -22,8 +22,8 @@ const card: React.FC<props> = ({ item }) => {
       <WrapItem>
         <Avatar
           size="xl"
-          name="Dan Abrahmov"
-          src={`https://picsum.photos/id/${item.id}/200`}
+          name={item.name}
+          src={`https://picsum.photos/id/6${item.id}/200`}
         />
       </WrapItem>
       <Center p="4">
