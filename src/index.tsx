@@ -13,7 +13,7 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ChakraProvider>
-          <App />
+          <App/>
         </ChakraProvider>
       </PersistGate>
     </Provider>

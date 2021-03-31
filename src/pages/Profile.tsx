@@ -11,7 +11,7 @@ const Profile: React.FC<Props> = (props: any) => {
   const users = useSelector(GetUsers).users;
   let user = users.find((user: any) => user.id === userId);
   return (
-    <Flex minH="100vh" flexDirection="column" justifyContent="center" alignItems="center" backgroundColor="orange.200">
+    <Flex minH="90vh" flexDirection="column" justifyContent="center" alignItems="center" backgroundColor="orange.200">
       <AvatarComponent name={user.name} id={user.id} />
       <TextComponent text="Profile page" color="red" bgColor="transparent" size="28" weight="bold"/>
       <TextComponent text={user.id}  color="green" bgColor="yellow.200"/>

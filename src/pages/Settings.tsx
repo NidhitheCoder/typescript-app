@@ -1,10 +1,13 @@
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex} from "@chakra-ui/react";
+import LeftMenu from "../components/LeftMenu";
+import SettingsList from "../components/SettingsList";
 
 const Settings = () => {
   return (
-    <Flex minH="100vh" justifyContent="center" alignItems="center" >
-      <Text color="green.500">Settings page</Text>
+    <Flex minH="90vh">
+       <LeftMenu />
+       <SettingsList />
     </Flex>
   );
 };

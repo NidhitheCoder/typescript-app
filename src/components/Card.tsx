@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Text, Flex, WrapItem, Avatar } from "@chakra-ui/react";
+import { Center, Text, Flex, WrapItem } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import AvatarComponent from '../components/AvatarComponent';
 

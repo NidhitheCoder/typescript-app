@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [usersData, setUsersData] = useState<any[]>([]);
-  const usersList = useSelector(GetUsers);
+  const usersList = useSelector(GetUsers).users;
 
   useEffect(() => {
     axios
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
         await dispatch(setUsers(res.data));
       })
       .catch(() => console.log("Something wrong"));
-    setUsersData(usersList.users);
+    setUsersData(usersList);
 
     setIsLoading(true);
 
@@ -38,12 +38,12 @@ const Home: React.FC = () => {
   }, [toast, dispatch]);
 
   return (
-    <Flex alignItems="center" minH="100vh">
+    <Flex alignItems="center" minH="90vh">
       <Wrap p="10" spacing="5" color="whiteAlpha.900">
         {usersData.map((item) =>
           isLoading ? (
-            <WrapItem>
-              <Card key={item.id} item={item} />
+            <WrapItem key={item.id}>
+              <Card  item={item} />
             </WrapItem>
           ) : (
             <CardSkeleton key={item.id} />
