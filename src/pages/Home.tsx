@@ -38,7 +38,7 @@ const Home: React.FC = () => {
   }, [toast, dispatch]);
 
   return (
-    <Flex alignItems="center" minH="100vh">
+    <Flex alignItems="center" minH="90vh">
       <Wrap p="10" spacing="5" color="whiteAlpha.900">
         {usersData.map((item) =>
           isLoading ? (

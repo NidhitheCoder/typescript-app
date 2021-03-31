@@ -22,7 +22,7 @@ const BottomBar: React.FC = () => {
       bottom="0"
       left="0"
       right="0"
-      h="70"
+      h="10vh"
       bg="red.900"
       justifyContent="space-evenly"
       alignItems="center"

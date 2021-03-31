@@ -30,7 +30,7 @@ const AddUser = () => {
   };
   return (
     <Flex
-      minH="100vh"
+      minH="90vh"
       justifyContent="center"
       alignItems="center"
       flexDirection="column"

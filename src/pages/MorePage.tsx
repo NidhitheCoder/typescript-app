@@ -3,7 +3,7 @@ import { Flex, Text } from "@chakra-ui/react";
 
 const More = () => {
   return (
-    <Flex minH="100vh" justifyContent="center" alignItems="center" >
+    <Flex minH="90vh" justifyContent="center" alignItems="center" >
       <Text color="green.500">More page</Text>
     </Flex>
   );
