@@ -1,9 +1,11 @@
 import React from 'react';
-import {Box} from '@chakra-ui/react';
+import {Box,Text} from '@chakra-ui/react';
 
 function SettingsList() {
   return (
-    <Box w="75%" backgroundColor="red"  textAlign="left" >Twoo</Box>
+    <Box w="75%" backgroundColor="red.300"  textAlign="left" >
+      <Text>Settings list</Text>
+    </Box>
   );
 }
 
