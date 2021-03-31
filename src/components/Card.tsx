@@ -1,30 +1,33 @@
 import React from "react";
 import { Center, Text, Flex, WrapItem, Avatar } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
+import AvatarComponent from '../components/AvatarComponent';
 
 type props = {
   item: any;
 };
 
-const card: React.FC<props> = ({ item }) => {
+const Card: React.FC<props> = ({ item }) => {
+  const history = useHistory();
+
+  const loadPath = (p: any) => history.push(`/profile/${p}`);
+
   return (
     <Flex
       bg="tomato"
       p="6"
       w="56"
-      mb="10"
+      h="56"
       borderRadius="5"
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
       transition="borderRadious 3s"
-      _hover={{ bg: "red"}}
+      _hover={{ bg: "red" }}
+      onClick={() => loadPath(item.id)}
     >
       <WrapItem>
-        <Avatar
-          size="xl"
-          name={item.name}
-          src={`https://picsum.photos/id/6${item.id}/200`}
-        />
+      <AvatarComponent name={item.name} id={item.id} />
       </WrapItem>
       <Center p="4">
         <Text> {item.name}</Text>
@@ -33,4 +36,4 @@ const card: React.FC<props> = ({ item }) => {
   );
 };
 
-export default card;
+export default Card;
