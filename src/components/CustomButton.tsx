@@ -1,8 +1,8 @@
 import {Button} from '@chakra-ui/react';
 
-function CustomButton({caption,eventFun}:any) {
+function CustomButton({caption,eventFun,color}:any) {
   return (
-    <Button onClick={eventFun}>
+    <Button onClick={eventFun} backgroundColor={color}>
       {caption}
     </Button>
   );

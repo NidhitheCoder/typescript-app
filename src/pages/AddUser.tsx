@@ -28,6 +28,7 @@ const AddUser = () => {
       <CustomButton
         caption="Add User"
         eventFun={addUserToList}
+        color="tomato"
       />
     </Flex>
   );

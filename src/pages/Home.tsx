@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Flex, useToast } from "@chakra-ui/react";
-import Card from "../components/card";
+import Card from "../components/Card";
 import {useDispatch,useSelector} from 'react-redux';
 import CardSkeleton from "../components/CardSkeleton";
 import axios from "axios";
