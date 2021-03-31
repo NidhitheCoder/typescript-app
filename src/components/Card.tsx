@@ -1,6 +1,7 @@
 import React from "react";
 import { Center, Text, Flex, WrapItem, Avatar } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
+import AvatarComponent from '../components/AvatarComponent';
 
 type props = {
   item: any;
@@ -16,7 +17,7 @@ const Card: React.FC<props> = ({ item }) => {
       bg="tomato"
       p="6"
       w="56"
-      mb="10"
+      h="56"
       borderRadius="5"
       justifyContent="center"
       alignItems="center"
@@ -26,11 +27,7 @@ const Card: React.FC<props> = ({ item }) => {
       onClick={() => loadPath(item.id)}
     >
       <WrapItem>
-        <Avatar
-          size="xl"
-          name={item.name}
-          src={`https://picsum.photos/id/6${item.id}/200`}
-        />
+      <AvatarComponent name={item.name} id={item.id} />
       </WrapItem>
       <Center p="4">
         <Text> {item.name}</Text>

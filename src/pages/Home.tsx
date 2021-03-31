@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Flex, useToast } from "@chakra-ui/react";
+import { Flex, useToast, Wrap, WrapItem } from "@chakra-ui/react";
 import Card from "../components/Card";
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import CardSkeleton from "../components/CardSkeleton";
 import axios from "axios";
-import {setUsers} from '../redux/user/user.action';
-import {GetUsers} from '../redux/user/user.selectors';
+import { setUsers } from "../redux/user/user.action";
+import { GetUsers } from "../redux/user/user.selectors";
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,9 +15,9 @@ const Home: React.FC = () => {
   const usersList = useSelector(GetUsers);
 
   useEffect(() => {
-     axios
+    axios
       .get("https://jsonplaceholder.typicode.com/users")
-      .then( async(res) => {
+      .then(async (res) => {
         toast({
           position: "top",
           title: "Wait a moment.. It's Loading.",
@@ -28,33 +28,28 @@ const Home: React.FC = () => {
         await dispatch(setUsers(res.data));
       })
       .catch(() => console.log("Something wrong"));
-      setUsersData(usersList.users)
-   
+    setUsersData(usersList.users);
+
     setIsLoading(true);
 
     return () => {
       setIsLoading(false);
     };
-  },[toast,dispatch]);
-
+  }, [toast, dispatch]);
 
   return (
-    <Flex
-      p="5"
-      mx="20"
-      my="10"
-      minH="100vh"
-      flexWrap="wrap"
-      justifyContent="space-around"
-      color="whiteAlpha.900"
-    >
-      {usersData.map((item) =>
-        isLoading ? (
-          <Card key={item.id} item={item} />
-        ) : (
-          <CardSkeleton key={item.id} />
-        )
-      )}
+    <Flex alignItems="center" minH="100vh">
+      <Wrap p="10" spacing="5" color="whiteAlpha.900">
+        {usersData.map((item) =>
+          isLoading ? (
+            <WrapItem>
+              <Card key={item.id} item={item} />
+            </WrapItem>
+          ) : (
+            <CardSkeleton key={item.id} />
+          )
+        )}
+      </Wrap>
     </Flex>
   );
 };

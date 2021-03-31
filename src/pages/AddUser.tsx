@@ -14,6 +14,7 @@ const AddUser = () => {
     dispatch(addUser({name,id}));
     setName("");
     setId("");
+    alert(`New user ${name} added..`)
   }
   return (
     <Flex
@@ -28,7 +29,9 @@ const AddUser = () => {
       <CustomButton
         caption="Add User"
         eventFun={addUserToList}
-        color="tomato"
+        bgColor="tomato"
+        color="white"
+        hovColor="orangered"
       />
     </Flex>
   );
