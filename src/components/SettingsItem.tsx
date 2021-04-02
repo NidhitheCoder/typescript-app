@@ -1,5 +1,7 @@
 import React from "react";
-import { Text, Flex } from "@chakra-ui/react";
+import { Flex,Icon } from "@chakra-ui/react";
+import TextComponent from "./TextComponent";
+import {FiSettings} from 'react-icons/fi'
 
 function SettingsItem({ Heading }: any) {
   return (
@@ -11,10 +13,12 @@ function SettingsItem({ Heading }: any) {
       p="5"
       my="5"
     >
-      <Text fontSize="24" fontWeight="bold">
-        {Heading}
-      </Text>
-      <Text>Settings section details here</Text>
+      <TextComponent size="24" weight="bold" text={Heading}  color="green" bgColor="yellow.200"/>
+      <TextComponent size="17" text={`${Heading} details here`} />
+      <Flex flexDirection="row">
+      <Icon w={6} h={6} as={FiSettings} color="brand" mr={2} />
+      <TextComponent color="green" text={'change settings'}/>
+      </Flex>
     </Flex>
   );
 }

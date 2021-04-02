@@ -4,7 +4,7 @@ import SettingsItem from './SettingsItem';
 
 function SettingsList() {
   return (
-    <Box w="75%" backgroundColor="red.100" p="10" textAlign="left" >
+    <Box w="75%" p="10" textAlign="left" >
       <Text>Settings</Text>
       <SettingsItem Heading={"Account settings"}/>
       <SettingsItem Heading={"Display settings"} />

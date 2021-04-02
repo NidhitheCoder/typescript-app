@@ -14,9 +14,9 @@ function LeftMenu() {
     <Flex
       w="25%"
       maxH="90vh"
-      h="90vh"
       flexDirection="column"
       pt="15vh"
+      px="3"
       gridRowGap="2"
       alignItems="flex-center"
     >
