@@ -4,12 +4,16 @@ import CustomButton from "./CustomButton";
 
 function LeftMenu() {
   const settingsList = [
-    "Account settings",
-    "General settings",
-    "Security settings",
-    "Privacy settings",
-    "Display settings",
+    { caption: "Account settings", link: "/accountSettings" },
+    { caption: "General settings", link: "/generalSettings" },
+    { caption: "Security settings", link: "/securitySettings" },
+    { caption: "Privacy settings", link: "/privacySettings" },
+    { caption: "Display settings", link: "/displaySettings" },
   ];
+
+  const changeList = (link:any) => {
+    console.log(window.location.pathname)
+    return window.location.pathname === link;}
   return (
     <Flex
       w="25%"
@@ -23,7 +27,8 @@ function LeftMenu() {
       {settingsList.map((setting, key) => {
         return (
           <CustomButton
-            caption={setting}
+            caption={setting.caption}
+            eventFun={() => {changeList(setting.link)}}
             key={key}
             color="dark-gray"
             hovColor="red.300"
