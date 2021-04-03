@@ -1,37 +1,36 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
-import CustomButton from "./CustomButton";
+import { Flex, Link } from "@chakra-ui/react";
+import { Props } from "framer-motion/types/types";
 
-function LeftMenu() {
-  const settingsList = [
-    "Account settings",
-    "General settings",
-    "Security settings",
-    "Privacy settings",
-    "Display settings",
-  ];
+const LeftMenu: React.FC<Props> = ({ settingsList }) => {
   return (
     <Flex
       w="25%"
       maxH="90vh"
-      h="90vh"
       flexDirection="column"
       pt="15vh"
-      gridRowGap="2"
+      px="5"
+      gridRowGap="5"
       alignItems="flex-center"
     >
-      {settingsList.map((setting, key) => {
+      {settingsList.map((setting: any, key: number) => {
         return (
-          <CustomButton
-            caption={setting}
+          <Link
             key={key}
-            color="dark-gray"
-            hovColor="red.300"
-          />
+            href={`#${setting.dataUser}`}
+            textDecoration="none"
+            textAlign="left"
+            color="tomato"
+            fontWeight="bold"
+            backgroundColor="gray.200"
+            p="3"
+          >
+            {setting.caption}
+          </Link>
         );
       })}
     </Flex>
   );
-}
+};
 
 export default LeftMenu;
