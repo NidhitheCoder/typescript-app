@@ -1,13 +1,12 @@
 import React from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import CustomButton from "../components/CustomButton";
+import { Flex, Text, Link } from "@chakra-ui/react";
 
 const More = () => {
   const socialList = [
-    { name: "Facebook", bgColor: "blue.600" },
-    { name: "Instagram", bgColor: "orange.400" },
-    { name: "Twitter", bgColor: "blue.300" },
-    { name: "Mail", bgColor: "red.600" },
+    { name: "Facebook", bgColor: "blue.600" , url:"https://www.facebook.com"},
+    { name: "Instagram", bgColor: "orange.400" , url:"https://www.instagram.com"},
+    { name: "Twitter", bgColor: "blue.300" , url:"https://www.twitter.com"},
+    { name: "Mail", bgColor: "red.600" , url:"https://www.gmail.com"},
   ];
   return (
     <Flex
@@ -17,6 +16,7 @@ const More = () => {
       gridGap="5"
       alignItems="center"
     >
+      <Text>We welcomes you...</Text>
       <Text
         color="green.500"
         fontSize="24"
@@ -27,14 +27,16 @@ const More = () => {
         Connect us with:
       </Text>
       {socialList.map((item) => (
-        <CustomButton
-          caption={item.name}
+        <Link
+          href={item.url}
+          p="2"
           color="white"
-          bgColor={item.bgColor}
-          radious="5"
-          width="56"
-          hovColor="green"
-        />
+          target="_blank"
+          backgroundColor={item.bgColor}
+          borderRadius="5"
+          w="56"
+          _hover={{backgroundColor:"green"}}
+        >{item.name}</Link>
       ))}
     </Flex>
   );
