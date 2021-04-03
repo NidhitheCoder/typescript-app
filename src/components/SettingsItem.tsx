@@ -3,7 +3,7 @@ import { Flex,Icon } from "@chakra-ui/react";
 import TextComponent from "./TextComponent";
 import {FiSettings} from 'react-icons/fi'
 
-function SettingsItem({ Heading }: any) {
+function SettingsItem({ Heading,id }: any) {
   return (
     <Flex
       justifyContent="flex-start"
@@ -12,6 +12,7 @@ function SettingsItem({ Heading }: any) {
       backgroundColor="red.300"
       p="5"
       my="5"
+      id={id}
     >
       <TextComponent size="24" weight="bold" text={Heading}  color="green" bgColor="yellow.200"/>
       <TextComponent size="17" text={`${Heading} details here`} />

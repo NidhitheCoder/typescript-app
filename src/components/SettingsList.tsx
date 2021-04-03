@@ -1,15 +1,14 @@
 import React from 'react';
 import {Box,Text} from '@chakra-ui/react';
 import SettingsItem from './SettingsItem';
+import { Props } from 'framer-motion/types/types';
 
-function SettingsList() {
+const  SettingsList:React.FC<Props> =({settingList}) => {
+  console.log(settingList);
   return (
     <Box w="75%" p="10" textAlign="left" >
       <Text>Settings</Text>
-      <SettingsItem id="accountSettings" Heading={"Account settings"}/>
-      <SettingsItem id="displaySettings" Heading={"Display settings"} />
-      <SettingsItem id="privacySettings" Heading={"Privacy settings"}/>
-      <SettingsItem id="generalSettings" Heading={"General settings"}/>
+      {settingList.map((item:any) => <SettingsItem key={item.dataUser} id={item.dataUser} Heading={item.caption}/>)}  
     </Box>
   );
 }
