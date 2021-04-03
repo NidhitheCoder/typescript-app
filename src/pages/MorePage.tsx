@@ -4,10 +4,10 @@ import CustomButton from "../components/CustomButton";
 
 const More = () => {
   const socialList = [
-    { name: "facebook", bgColor: "blue.500" },
-    { name: "instagram", bgColor: "orange.400" },
-    { name: "twitter", bgColor: "blue.300" },
-    { name: "mail", bgColor: "red.600" },
+    { name: "Facebook", bgColor: "blue.600" },
+    { name: "Instagram", bgColor: "orange.400" },
+    { name: "Twitter", bgColor: "blue.300" },
+    { name: "Mail", bgColor: "red.600" },
   ];
   return (
     <Flex
@@ -22,6 +22,7 @@ const More = () => {
         fontSize="24"
         fontWeight="bold"
         textColor="blue.400"
+        mb="10"
       >
         Connect us with:
       </Text>
